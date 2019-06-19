@@ -14,13 +14,16 @@ for line in comp:
     mdict.update({str(field[0]):str(field[1]).rstrip()})
 
 #Gathers current computer name
-current_name = subprocess.call(["scutil", "--get", "computerName"])
+current_name = subprocess.Popen(["scutil", "--get", "ComputerName"], stdout=subprocess.PIPE)
+compName = str(current_name.stdout.read()).rstrip()
+print compName
+
 
 #Finds current computer name in dictionary
-if str(current_name) in mdict:
+if str(compName) in mdict:
     #Renames computer name, host name, and local host name
-    subprocess.call(["sudo", "scutil", "--set", "LocalHostName", mdict[current_name]])
-    subprocess.call(["sudo", "scutil", "--set", "HostName", mdict[current_name]])
-    subprocess.call(["sudo", "scutil", "--set", "ComputerName", mdict[current_name]])
+    subprocess.call(["sudo", "scutil", "--set", "LocalHostName", mdict[compName]])
+    subprocess.call(["sudo", "scutil", "--set", "HostName", mdict[compName]])
+    subprocess.call(["sudo", "scutil", "--set", "ComputerName", mdict[compName]])
 else:
     print("Computer not in dictionary or Addigy")
