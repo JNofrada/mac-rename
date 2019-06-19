@@ -11,7 +11,7 @@ mdict = {
 for line in comp:
     if not line: break
     field = line.split(",")
-    mdict.update({field[0]:field[1]})
+    mdict.update({str(field[0]):str(field[1]).rstrip()})
 
 #Gathers current computer name
 current_name = subprocess.call(["scutil", "--get", "computerName"])
