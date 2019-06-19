@@ -23,3 +23,5 @@ if str(current_name) in mdict:
     subprocess.call(["sudo", "scutil", "--set", "LocalHostName", mdict[current_name]])
     subprocess.call(["sudo", "scutil", "--set", "HostName", mdict[current_name]])
     subprocess.call(["sudo", "scutil", "--set", "ComputerName", mdict[current_name]])
+else:
+    print("Computer not in dictionary or Addigy")
