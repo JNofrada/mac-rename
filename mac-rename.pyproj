@@ -22,11 +22,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MacRename.py" />
-    <Compile Include="test.py" />
+    <Content Include="comp_names.txt" />
+    <Content Include="mother_devices.csv" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mother_devices.csv" />
+    <Compile Include="MacRename.py" />
+    <Compile Include="test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

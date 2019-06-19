@@ -14,7 +14,7 @@ for line in comp:
     mdict.update({str(field[0]):str(field[1]).rstrip()})
 
 #Gathers current computer name
-current_name = subprocess.Popen(["scutil", "--get", "ComputerName"], stdout=subprocess.PIPE)
+current_name = subprocess.Popen(["scutil", "--get", "LocalHostName"], stdout=subprocess.PIPE)
 compName = str(current_name.stdout.read()).rstrip()
 print compName
 
